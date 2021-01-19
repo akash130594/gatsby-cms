@@ -84,6 +84,7 @@ Cloudinary is also a file upload system. It also used for hosting our files and 
 - Provide your cloudinary api key and cloud name provided after creating account in cloudinary `https://cloudinary.com/`
 - Congrats!! You have enabled cloudinary on your netlify cms. Visit cms backend and then login for first and last time to start uploadig files in cloudinary.
 
+For more details see the [Netlify CMS Docs](https://www.netlifycms.org/docs/uploadcare/)
 
 ## Uploadcare setup
 
@@ -100,7 +101,7 @@ Each site you'll create need its own Uploadcare API key's. See below how to set 
 - find the `media_library` settings and paste in the public key after `publicKey:`
 - Done!!
 
-For more details see the [Netlify CMS Docs](https://www.netlifycms.org/docs/uploadcare/)
+For more details see the [Netlify CMS Docs](https://www.netlifycms.org/docs/cloudinary/)
 
 ## Scheduled content
 
