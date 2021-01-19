@@ -47,7 +47,9 @@ export const ComponentsPageTemplate = ({
         <Content source={section2} />
       </div>
     </section>
-
+    <video controls>
+      <source src={video} type="video/mp4" />
+    </video>
     <section className="BackgroundVideo-section section">
       <BackgroundVideo poster={videoPoster} videoTitle={videoTitle}>
         {video && <source src={ video } type="video/mp4" />}
