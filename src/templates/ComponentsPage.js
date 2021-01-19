@@ -17,6 +17,7 @@ export const ComponentsPageTemplate = ({
   section1,
   section2,
   video,
+  video_two,
   videoPoster,
   videoTitle,
   accordion,
@@ -47,8 +48,8 @@ export const ComponentsPageTemplate = ({
         <Content source={section2} />
       </div>
     </section>
-    <video controls>
-      <source src={video} type="video/mp4" />
+    <video controls autoPlay>
+      <source src={video_two} type="video/mp4" />
     </video>
     <section className="BackgroundVideo-section section">
       <BackgroundVideo poster={videoPoster} videoTitle={videoTitle}>
@@ -96,6 +97,7 @@ export const pageQuery = graphql`
         featuredImage
         section1
         section2
+        video_two
         video
         videoPoster
         videoTitle

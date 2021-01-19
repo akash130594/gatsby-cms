@@ -52,6 +52,16 @@ The CMS lives at [\_\_YOUR_SITE_NAME\_\_.netlify.com/admin](https://__YOUR_SITE_
 
 `gatsby develop` or `yarn start` or `npm run start`
 
+1. For setting up Firebase create .env file and add key and values as below
+
+`GATSBY_FIREBASE_APIKEY=<KEY>
+GATSBY_FIREBASE_AUTHDOMAIN=<Auth_Domain>
+GATSBY_FIREBASE_DATABASEURL=<Database_Url>
+GATSBY_FIREBASE_PROJECTID=<Project_Id>
+GATSBY_FIREBASE_STORAGEBUCKET=<Storage_Bucket>
+GATSBY_FIREBASE_MESSAGINGSENDERID=<Messageing_Sender_Id>
+GATSBY_FIREBASE_APPID=<App_Id>`
+
 If you are adding or editing content locally in the CMS, a couple of things to note:
 
 1.  Changes will be pushed to the remote repo.
@@ -139,4 +149,4 @@ https://hooks.zapier.com/hooks/catch/2881617/ea5exg/
 - Hit send test to MailChimp button and hit finish if succeeded
 - Give your Zap a name and make sure your zap is turned on
 - Submit your form one last time and see if all data is coming trough to MailChimp
-- That's it!
+- That's it!    
