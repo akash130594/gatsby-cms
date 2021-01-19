@@ -54,13 +54,13 @@ The CMS lives at [\_\_YOUR_SITE_NAME\_\_.netlify.com/admin](https://__YOUR_SITE_
 
 1. For setting up Firebase create .env file and add key and values as below
 
-```GATSBY_FIREBASE_APIKEY=<KEY>
+`GATSBY_FIREBASE_APIKEY=<KEY>
 GATSBY_FIREBASE_AUTHDOMAIN=<Auth_Domain>
 GATSBY_FIREBASE_DATABASEURL=<Database_Url>
 GATSBY_FIREBASE_PROJECTID=<Project_Id>
 GATSBY_FIREBASE_STORAGEBUCKET=<Storage_Bucket>
 GATSBY_FIREBASE_MESSAGINGSENDERID=<Messageing_Sender_Id>
-GATSBY_FIREBASE_APPID=<App_Id>```
+GATSBY_FIREBASE_APPID=<App_Id>`
 
 If you are adding or editing content locally in the CMS, a couple of things to note:
 
@@ -73,6 +73,17 @@ If you are adding or editing content locally in the CMS, a couple of things to n
 The Netlify CMS configuration is located in `public/admin/config.yml`. This is where you will configure the pages, fields, posts and settings that are editable by the CMS.
 
 Find out more in the [Netlify CMS Docs](https://www.netlifycms.org/docs/#configuration).
+
+## Cloudinary setup
+
+Cloudinary is also a file upload system. It also used for hosting our files and deilvers CDN network
+
+1. Steps to enable cloudinary:
+- In our project we can enable cloudinary by location static/admin/cofig.yml file. 
+- Uncomment cloudinary config in `medial_library` and comment other i.e. `uploadcare`
+- Provide your cloudinary api key and cloud name provided after creating account in cloudinary `https://cloudinary.com/`
+- Congrats!! You have enabled cloudinary on your netlify cms. Visit cms backend and then login for first and last time to start uploadig files in cloudinary.
+
 
 ## Uploadcare setup
 
