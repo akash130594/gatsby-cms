@@ -11,4 +11,6 @@ meta:
   title: test
   noindex: true
 ---
+![test post](https://ucarecdn.com/92122614-de74-4410-85a4-bcf3c05d9cde/ "test post")
+
 This is a content
