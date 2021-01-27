@@ -80,7 +80,7 @@ Cloudinary is also a file upload system. It also used for hosting our files and 
 
 1. Steps to enable cloudinary:
 
-- Go to [Cloudinary.com](https://cloudinary.com/login/) and login
+- Go to [Cloudinary.com](https://cloudinary.com/users/login) and login
 - Once on the dashboard you will be able to see API key and cloud name
 - In our project we can enable cloudinary by location static/admin/cofig.yml file. 
 - Uncomment cloudinary config in `medial_library` and comment other i.e. `uploadcare`
