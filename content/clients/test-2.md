@@ -9,4 +9,3 @@ gallery:
   - image: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929899/samples/cloudinary-group.jpg
     alt: cloudinary
     title: test by cloudinary
----

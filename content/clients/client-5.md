@@ -1,7 +1,6 @@
 ---
 template: HomePage
 title: Netflix
-featuredImage:
-  - https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929898/samples/imagecon-group.jpg
-  - https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929899/samples/cloudinary-group.jpg
+featuredImage: >-
+  https://ucarecdn.com/f540281a-41cf-4bfa-8181-b172e2655fba/-/crop/1632x1777/0,672/-/preview/
 ---

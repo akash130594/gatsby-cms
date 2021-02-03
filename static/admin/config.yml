@@ -5,19 +5,24 @@ backend:
 
 # display_url: https://gatsbro.netlify.com # This url will display in the top-right of the CMS
 media_library:
-  # name: cloudinary
-  # config:
-  #   cloud_name: dhuii7xg2
-  #   api_key: 653285898825122
-  name: uploadcare
+  name: cloudinary
   config:
-    publicKey: a73a170cb5cdef662983
-    multiple: false
-    tabs: 'file camera url facebook gdrive'
-    effects: 'crop,rotate,enhance,grayscale'
-    imageShrink: '2000x2000'
-    previewStep: true
-    clearable: true
+    cloud_name: dpm373rch
+    api_key: 616853212793338
+    default_transformations:
+      - - fetch_format: auto
+          width: auto
+          quality: auto
+          crop: scale
+  # name: uploadcare
+  # config:
+  #   publicKey: a73a170cb5cdef662983
+  #   multiple: false
+  #   tabs: 'file camera url facebook gdrive'
+  #   effects: 'crop,rotate,enhance,grayscale'
+  #   imageShrink: '2000x2000'
+  #   previewStep: true
+  #   clearable: true
 
 collections: # A list of collections the CMS should be able to edit
   - name: 'pages'
@@ -338,23 +343,87 @@ collections: # A list of collections the CMS should be able to edit
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
 
-  - name: clients
-    label: Clients
+  - name: projects
+    label: Projects
     editor:
       preview: false
-    folder: content/clients
+    folder: content/projects
     slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: HomePage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
+      - { label: Description, name: description, widget: text, required: false }
+      - { label: Sub Description, name: subDescription, widget: text, required: false }
+      - { label: Hash Tags, name: hashtags, widget: text, required: false }
+      - { label: Trailer, name: trailer, widget: file, required: false }
+      - { label: 'Year',
+          name: 'year',
+          widget: 'date',
+          default: '',
+          format: 'YY' }
+      - { label: 'Release',
+          name: 'release',
+          widget: 'date',
+          default: '',
+          format: 'MMM YY' }
+      - { label: Type, name: type, widget: string, required: false }   
+      - { label: Studio, name: studio, widget: string, required: false }
+      - { label: Featured, name: isFeatured, widget: boolean, required: false } 
       - {
           label: Featured Image,
           name: featuredImage,
           widget: image,
           required: false,
         }
+      - {
+        label: HomePage Featured Image,
+        name: homePageFeaturedImage,
+        widget: image,
+        required: false,
+      }
+      - {
+        label: HomePage Project Image,
+        name: homePageProjectImage,
+        widget: image,
+        required: false,
+      }  
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: image, label: Image, widget: image }
+          - { name: alt, label: Alt, widget: string }
+          - { name: title, label: Title, widget: string, required: false }  
+      - label: 'Process'
+        name: 'process'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: image, label: Image, widget: image }
+          - { name: alt, label: Alt, widget: string }
+          - { name: title, label: Title, widget: string, required: false }    
+      - label: 'Teams'
+        required: false
+        name: 'team'
+        widget: 'object'
+        fields:
+          - { label: Director, name: director, widget: string, required: false }
+          - {
+              label: Studio,
+              name: studio,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Producer,
+              name: producer,
+              widget: string,
+              required: false,
+            }
+          - { label: Art Director, name: artDirector, widget: string, required: false }    
       - label: 'Meta'
         required: false
         name: 'meta'
