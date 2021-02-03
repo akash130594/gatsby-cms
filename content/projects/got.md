@@ -19,6 +19,7 @@ studio: Netflix
 isFeatured: true
 featuredImage: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611930246/222_zfq8qk.png
 homePageFeaturedImage: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929886/sample.jpg
+project-category: trailer
 homePageProjectImage: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929894/samples/bike.jpg
 gallery:
   - image: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1611929887/samples/cloudinary-logo-vector.svg
