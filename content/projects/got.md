@@ -12,8 +12,8 @@ subDescription: "Game of Thrones: Conquest features an innovative alliance
   Throne! Raise Dragons."
 hashtags: "#vfx #animation"
 trailer: https://res.cloudinary.com/dpm373rch/video/upload/c_scale,f_auto,q_auto,w_auto/v1612339747/898104290_uhxxtk.mp4
-year: "21"
-release: Feb 21
+year: "2021"
+release: 02/2021
 type: VR Experience
 studio: Netflix
 isFeatured: true
