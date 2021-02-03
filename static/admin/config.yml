@@ -362,12 +362,12 @@ collections: # A list of collections the CMS should be able to edit
           name: 'year',
           widget: 'date',
           default: '',
-          format: 'YY' }
+          format: 'YYYY' }
       - { label: 'Release',
           name: 'release',
           widget: 'date',
           default: '',
-          format: 'MMM YY' }
+          format: 'MM/YYYY' }
       - { label: Type, name: type, widget: string, required: false }   
       - { label: Studio, name: studio, widget: string, required: false }
       - { label: Featured, name: isFeatured, widget: boolean, required: false } 
