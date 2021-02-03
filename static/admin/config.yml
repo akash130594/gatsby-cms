@@ -383,6 +383,16 @@ collections: # A list of collections the CMS should be able to edit
         widget: image,
         required: false,
       }
+      - widget: relation
+        name: project-category
+        label: Category
+        required: true
+        hint: >-
+          The author of the post
+        collection: projectCategories
+        valueField: title
+        searchFields: ["title"]
+        displayFields: ["title"]
       - {
         label: HomePage Project Image,
         name: homePageProjectImage,
@@ -479,7 +489,17 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
-
+  - name: projectCategories
+    label: Project Categories
+    editor:
+      preview: false
+    folder: content/projectCategories
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }     
   - name: 'settings'
     label: 'Settings'
     delete: false # Prevent users from deleting documents in this collection
