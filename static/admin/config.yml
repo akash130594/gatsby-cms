@@ -31,6 +31,58 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: true
     files:
+      - file: 'content/pages/about.md'
+        name: pages
+        label: about
+        fields: # The fields each document in this collection have
+          - { label: Template, name: template, widget: hidden, default: HomePage }
+          - { label: Slug, name: slug, widget: string }            
+          - { label: Title, name: title, widget: string }
+          - {
+            label: Featured Image,
+            name: featuredImage,
+            widget: image,
+            required: false,
+          }
+          - { label: Sub Title, name: subTitle, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: 'CEO Details'
+            name: 'ceo'
+            widget: 'list'
+            min: 1
+            max: 1
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }  
+          - { label: Our Story Description, name: our_story_description, widget: text }  
+          - label: 'Story'
+            name: 'story'
+            widget: 'list'
+            min: 2
+            fields:
+              - { name: year, label: Year, widget: date, format: 'YYYY', date_format: 'YYYY'}
+              - name: 'image' 
+                label: 'Image'
+                widget: 'list'
+                min: 2
+                fields:
+                  - { name: story_image, label: Image, widget: image }
+                  - { name: story_alt, label: Alt, widget: string }
+                  - { name: story_title, label: Title, widget: string, required: false }  
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+              - { name: header, label: Header, widget: string, required: false }
+              - { name: description, label: Description, widget: text, required: false }  
+          - { label: Our Team Description, name: our_team_description, widget: text }
+          - label: 'Our Team Gallery'
+            name: 'gallery'
+            widget: 'list'
+            min: 1
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }    
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -341,7 +393,7 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }   
 
   - name: projects
     label: Projects
@@ -453,6 +505,18 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
+  - name: projectCategories
+    label: Project Categories
+    editor:
+      preview: false
+    folder: content/projectCategories
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }     
+
   - name: postCategories
     label: Post Category
     editor:
@@ -488,18 +552,7 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
-  - name: projectCategories
-    label: Project Categories
-    editor:
-      preview: false
-    folder: content/projectCategories
-    slug: '{{slug}}'
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: HomePage }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }     
+          - { label: Noindex, name: noindex, widget: boolean, required: false }   
   - name: 'settings'
     label: 'Settings'
     delete: false # Prevent users from deleting documents in this collection
