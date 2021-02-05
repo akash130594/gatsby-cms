@@ -97,6 +97,8 @@ collections: # A list of collections the CMS should be able to edit
           - { label: Slug, name: slug, widget: hidden, default: 'our-team' }
           - { label: Title, name: title, widget: string }
           - { label: Description, name: description, widget: markdown }
+          - { label: Quote One, name: quote_one, widget: markdown, required: false }
+          - { label: Quote Two, name: quote_two, widget: markdown, required: false }
           - label: 'Gallery'
             name: 'gallery'
             widget: 'list'
