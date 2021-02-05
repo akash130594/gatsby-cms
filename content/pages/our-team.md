@@ -4,6 +4,14 @@ description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
   cursus justo sit amet sodales posuere. Duis at nulla rutrum, efficitur turpis
   sed, vestibulum magna. Nullam quis ultrices dolor. Nam semper faucibus
   feugiat.
+quote_one: "> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+  cursus justo sit amet sodales posuere. Duis at nulla rutrum, efficitur turpis
+  sed, vestibulum magna. Nullam quis ultrices dolor. Nam semper faucibus
+  feugiat."
+quote_two: "> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+  cursus justo sit amet sodales posuere. Duis at nulla rutrum, efficitur turpis
+  sed, vestibulum magna. Nullam quis ultrices dolor. Nam semper faucibus
+  feugiat."
 gallery:
   - image: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1612351913/Layer_0_1_mju0rx.png
     alt: asdas
