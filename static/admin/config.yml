@@ -457,12 +457,19 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Description, name: description, widget: markdown }
       - { label: Role, name: role, widget: markdown }
       - { label: Quote, name: quote, widget: markdown }
+      - { label: Employee Of The Month, name: empOfMonth, widget: boolean, default: false }
       - {
           label: Featured Image,
           name: featuredImage,
           widget: image,
           required: false,
         }
+      - {
+        label: Our Team Image,
+        name: ourImageImage,
+        widget: image,
+        required: false,
+      }  
       - label: 'Meta'
         required: false
         name: 'meta'
