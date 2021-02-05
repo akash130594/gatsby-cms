@@ -83,7 +83,52 @@ collections: # A list of collections the CMS should be able to edit
               - { name: image, label: Image, widget: image }
               - { name: alt, label: Alt, widget: string }
               - { name: title, label: Title, widget: string, required: false }    
-          - { label: Join Us, name: join_us_description, widget: text }    
+          - { label: Join Us, name: join_us_description, widget: text } 
+      - file: 'content/pages/our-team.md'
+        label: 'Our Team'
+        name: 'our-team'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: OurTeam,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'our-team' }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: 'list'
+            min: 2
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }       
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -401,7 +446,7 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: true
     folder: content/teams
-    slug: '{{slug}}'
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: HomePage }
