@@ -83,6 +83,7 @@ collections: # A list of collections the CMS should be able to edit
               - { name: image, label: Image, widget: image }
               - { name: alt, label: Alt, widget: string }
               - { name: title, label: Title, widget: string, required: false }    
+          - { label: Join Us, name: join_us_description, widget: text }    
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -393,8 +394,48 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }   
+          - { label: Noindex, name: noindex, widget: boolean, required: false }  
 
+  - name: team
+    label: Team
+    editor:
+      preview: true
+    folder: content/teams
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }
+      - { label: Position, name: position, widget: string }
+      - { label: Description, name: description, widget: markdown }
+      - { label: Role, name: role, widget: markdown }
+      - { label: Quote, name: quote, widget: markdown }
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }
+          
   - name: projects
     label: Projects
     editor:
