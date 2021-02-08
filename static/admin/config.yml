@@ -399,16 +399,33 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Template, name: template, widget: hidden, default: SinglePost }
       - { label: Title, name: title, widget: string }
       - { label: Header Description, name: headerDescription, widget: string }
-      - { label: Description, name: description, widget: string }
+      - { label: Description, name: description, widget: text }
       - { label: HashTags, name: hashtags, widget: string }
-      - { label: Sub Header One, name: subHeaderOne, widget: string }
-      - { label: Sub Description One, name: subDescriptionOne, widget: markdown }
-      - {
-        label: Sub Image One,
-        name: subImageOne,
-        widget: image,
-        required: false,
-      }
+
+      - label: 'Sub Description One'
+        required: false
+        name: 'subDescriptionOne'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description One,
+              name: descriptionOne,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Image,
+              name: image,
+              widget: image,
+              required: false,
+            }  
+          - {
+              label: Description Two,
+              name: descriptionTwo,
+              widget: text,
+              required: false,
+            }
       - label: 'Sub Description Two'
         required: false
         name: 'subDescriptionTwo'
@@ -448,7 +465,7 @@ collections: # A list of collections the CMS should be able to edit
               - { name: image, label: Image, widget: image }
               - { name: alt, label: Alt, widget: string }
               - { name: title, label: Title, widget: string, required: false }
-      - { label: Sub Header Three, name: subHeaderThree, widget: text }
+      - { label: Sub Header Three, name: subHeaderThree, widget: string }
       - { label: Sub Description Three, name: subDescriptionThree, widget: text }      
       - label: 'Status'
         name: 'status'
