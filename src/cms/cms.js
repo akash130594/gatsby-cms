@@ -43,3 +43,33 @@ CMS.registerPreviewTemplate('blog-page', ({ entry }) => (
 CMS.registerPreviewTemplate('posts', ({ entry }) => (
   <SinglePostTemplate {...entry.toJS().data} />
 ))
+CMS.registerEditorComponent({
+  // Internal id of the component
+  id: "imageGallery",
+  // Visible label
+  label: "Image Gallery",
+  // Fields the user need to fill out when adding an instance of the component
+  fields: [{name: 'gallery', label: 'Blog Image Gallery', widget: 'list', fields: [
+              { name: 'image', label: 'Image', widget: 'image' },
+              { name: 'alt', label: 'Alt', widget: 'string' },
+              { name: 'title', label: 'Title', widget: 'string', required: false }] }],
+  // Pattern to identify a block as being an instance of this component
+  // pattern: /^youtube (\S+)$/,
+  // // Function to extract data elements from the regexp match
+  // fromBlock: function(match) {
+  //   return {
+  //     id: match[1]
+  //   };
+  // },
+  // Function to create a text block from an instance of this component
+  // toBlock: function(obj) {
+  //   return 'youtube ' + obj.id;
+  // },
+  // Preview output for this component. Can either be a string or a React component
+  // (component gives better render performance)
+  toPreview: function(obj) {
+    return (
+      '<img src="http://img.youtube.com/vi/' + obj.id + '/maxresdefault.jpg" alt="Youtube Video"/>'
+    );
+  }
+});

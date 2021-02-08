@@ -35,7 +35,7 @@ collections: # A list of collections the CMS should be able to edit
         name: pages
         label: about
         fields: # The fields each document in this collection have
-          - { label: Template, name: template, widget: hidden, default: HomePage }
+          - { label: Template, name: template, widget: hidden, default: AboutPage }
           - { label: Slug, name: slug, widget: string }            
           - { label: Title, name: title, widget: string }
           - {
@@ -86,7 +86,7 @@ collections: # A list of collections the CMS should be able to edit
           - { label: Join Us, name: join_us_description, widget: text } 
       - file: 'content/pages/our-team.md'
         label: 'Our Team'
-        name: 'our-team'
+        name: 'ourTeam'
         fields:
           - {
               label: Template,
@@ -130,7 +130,7 @@ collections: # A list of collections the CMS should be able to edit
                   name: noindex,
                   widget: boolean,
                   required: false,
-                }       
+                }     
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -398,6 +398,23 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: SinglePost }
       - { label: Title, name: title, widget: string }
+      - { label: Header Description, name: headerDescription, widget: string }
+      - { label: Description, name: description, widget: string }
+      - { label: HashTags, name: hashtags, widget: string }
+      - { label: Sub Header One, name: subHeaderOne, widget: string }
+      - { label: Sub Description One, name: subDescriptionOne, widget: markdown }
+      - {
+        label: Sub Image One,
+        name: subImageOne,
+        widget: image,
+        required: false,
+      }
+      - { label: Sub Header Two, name: subHeaderTwo, widget: string }
+      - { label: Sub Description Two, name: subDescriptionTwo, widget: markdown }
+      - { label: Quote One, name: quoteOne, widget: string }
+      - { label: Quote Two, name: quoteTwo, widget: string }
+      - { label: Sub Header Three, name: subHeaderThree, widget: string }
+      - { label: Sub Description Three, name: subDescriptionThree, widget: string }
       - label: 'Status'
         name: 'status'
         widget: 'select'
@@ -410,8 +427,14 @@ collections: # A list of collections the CMS should be able to edit
           widget: image,
           required: false,
         }
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Content, name: body, widget: markdown }
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: image, label: Image, widget: image }
+          - { name: alt, label: Alt, widget: string }
+          - { name: title, label: Title, widget: string, required: false }   
       - label: 'Categories'
         name: 'categories'
         widget: 'list'
@@ -441,7 +464,7 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }  
+          - { label: Noindex, name: noindex, widget: boolean, required: false }   
 
   - name: team
     label: Team
