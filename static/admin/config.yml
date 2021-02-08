@@ -409,12 +409,47 @@ collections: # A list of collections the CMS should be able to edit
         widget: image,
         required: false,
       }
-      - { label: Sub Header Two, name: subHeaderTwo, widget: string }
-      - { label: Sub Description Two, name: subDescriptionTwo, widget: markdown }
-      - { label: Quote One, name: quoteOne, widget: string }
-      - { label: Quote Two, name: quoteTwo, widget: string }
-      - { label: Sub Header Three, name: subHeaderThree, widget: string }
-      - { label: Sub Description Three, name: subDescriptionThree, widget: string }
+      - label: 'Sub Description Two'
+        required: false
+        name: 'subDescriptionTwo'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description One,
+              name: descriptionOne,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Quote One,
+              name: quoteOne,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Description Two,
+              name: descriptionTwo,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Quote Two,
+              name: quoteTwo,
+              widget: string,
+              required: false,
+            }
+          - label: Blog Gallery
+            name: blogGallery
+            widget: list
+            required: false
+            min: 2
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+      - { label: Sub Header Three, name: subHeaderThree, widget: text }
+      - { label: Sub Description Three, name: subDescriptionThree, widget: text }      
       - label: 'Status'
         name: 'status'
         widget: 'select'
@@ -426,15 +461,7 @@ collections: # A list of collections the CMS should be able to edit
           name: featuredImage,
           widget: image,
           required: false,
-        }
-      - label: 'Gallery'
-        name: 'gallery'
-        widget: 'list'
-        min: 2
-        fields:
-          - { name: image, label: Image, widget: image }
-          - { name: alt, label: Alt, widget: string }
-          - { name: title, label: Title, widget: string, required: false }   
+        }  
       - label: 'Categories'
         name: 'categories'
         widget: 'list'
