@@ -1,19 +1,32 @@
 ---
-template: ContactPage
 slug: contact
-title: Contact Page
-featuredImage: https://ucarecdn.com/e22a858a-b420-47af-99f6-ed54b6860333/
-subtitle: This is the contact page subtitle.
-address: '404 James St, Burleigh Heads QLD 4220'
-phone: 0987 123 456
-email: example@example.com
-locations:
-  - lat: '-27.9654732'
-    lng: '153.2432449'
-    mapLink: ''
 meta:
   description: This is a meta description.
   title: Contact Page
+featuredImage: https://ucarecdn.com/e22a858a-b420-47af-99f6-ed54b6860333/
+phone: 0987 123 456
+address: 404 James St, Burleigh Heads QLD 4220
+template: ContactPage
+title: Contact Page
+offices:
+  - image: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1612855965/annie-spratt-pbrQvuKJQf8-unsplash_1_eoeuxt.png
+    address: Suite 2, 7 Leeds Street Rhodes, NSW 2138 AUSTRALIA
+    contactNumber: +61 2 96485175
+    city: Sydney
+  - image: https://res.cloudinary.com/dpm373rch/image/upload/c_scale,f_auto,q_auto,w_auto/v1612855965/kayle-kaupanger-GqGgPA2swJA-unsplash_1_vwfvca.png
+    contactNumber: +1 3108017300
+    address: USA
+    city: Los Angeles
+subtitle: This is the contact page subtitle.
+email: example@example.com
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+  cursus justo sit amet sodales posuere. Duis at nulla rutrum, efficitur turpis
+  sed, vestibulum magna. Nullam quis ultrices dolor. Nam semper faucibus
+  feugiat.
+locations:
+  - lat: "-27.9654732"
+    lng: "153.2432449"
+    mapLink: ""
 ---
 
 # Example contact form
