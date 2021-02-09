@@ -176,6 +176,106 @@ collections: # A list of collections the CMS should be able to edit
                   widget: boolean,
                   required: false,
                 }
+      - file: 'content/pages/services.md'
+        label: 'Service Page'
+        name: 'service-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: ServiceIndex,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'services' }
+          - { label: Title, name: title, widget: string }
+          - { label: Subtitle, name: subtitle, widget: text }
+          - { label: Description, name: description, widget: text }
+          - label: 'featuredImages'
+            name: 'featuredImages'
+            widget: 'list'
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+          - label: 'Photoreal CG'
+            required: false
+            name: 'photorealCg'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string}
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                }
+              - {
+                  label: Image,
+                  name: image,
+                  widget: image,
+                }
+          - label: 'Performace Capture'
+            name: 'performaceCapture'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string}
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                }
+              - label: Image
+                name: image
+                widget: list
+                fields:
+                 - { name: image, label: Image, widget: image }
+                 - { name: alt, label: Alt, widget: string }
+                 - { name: title, label: Title, widget: string, required: false }
+          - label: 'Realtime Animation'
+            name: 'realTimeAnimation'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string}
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                }
+              - {
+                  label: Desktop Image,
+                  name: desktopImage,
+                  widget: image,
+                }
+              - {
+                  label: Mobile Image,
+                  name: mobileImage,
+                  widget: image,
+                } 
+          - { label: Contact Us, name: contactUsDescription, widget: text}
+          - { label: Contact Us Image, name: contactUsImage, widget: image}                
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
 
       - file: 'content/pages/blog.md'
         label: 'Blog Page'
