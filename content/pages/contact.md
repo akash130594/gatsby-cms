@@ -19,10 +19,10 @@ offices:
     city: Los Angeles
 subtitle: This is the contact page subtitle.
 email: example@example.com
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
   cursus justo sit amet sodales posuere. Duis at nulla rutrum, efficitur turpis
   sed, vestibulum magna. Nullam quis ultrices dolor. Nam semper faucibus
-  feugiat.
+  feugiat. "
 locations:
   - lat: "-27.9654732"
     lng: "153.2432449"
