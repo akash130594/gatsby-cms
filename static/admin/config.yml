@@ -31,151 +31,6 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: true
     files:
-      - file: 'content/pages/about.md'
-        name: pages
-        label: about
-        fields: # The fields each document in this collection have
-          - { label: Template, name: template, widget: hidden, default: AboutPage }
-          - { label: Slug, name: slug, widget: string }            
-          - { label: Title, name: title, widget: string }
-          - {
-            label: Featured Image,
-            name: featuredImage,
-            widget: image,
-            required: false,
-          }
-          - { label: Sub Title, name: subTitle, widget: string }
-          - { label: Description, name: description, widget: text }
-          - label: 'CEO Details'
-            name: 'ceo'
-            widget: 'list'
-            min: 1
-            max: 1
-            fields:
-              - { name: image, label: Image, widget: image }
-              - { name: alt, label: Alt, widget: string }
-              - { name: title, label: Title, widget: string, required: false }  
-          - { label: Our Story Description, name: our_story_description, widget: text }  
-          - label: 'Story'
-            name: 'story'
-            widget: 'list'
-            min: 2
-            fields:
-              - { name: year, label: Year, widget: date, format: 'YYYY', date_format: 'YYYY'}
-              - name: 'image' 
-                label: 'Image'
-                widget: 'list'
-                min: 2
-                fields:
-                  - { name: story_image, label: Image, widget: image }
-                  - { name: story_alt, label: Alt, widget: string }
-                  - { name: story_title, label: Title, widget: string, required: false }  
-              - { name: alt, label: Alt, widget: string }
-              - { name: title, label: Title, widget: string, required: false }
-              - { name: header, label: Header, widget: string, required: false }
-              - { name: description, label: Description, widget: text, required: false }  
-          - { label: Our Team Description, name: our_team_description, widget: text }
-          - label: 'Our Team Gallery'
-            name: 'gallery'
-            widget: 'list'
-            min: 1
-            fields:
-              - { name: image, label: Image, widget: image }
-              - { name: alt, label: Alt, widget: string }
-              - { name: title, label: Title, widget: string, required: false }    
-          - { label: Join Us, name: join_us_description, widget: text } 
-      - file: 'content/pages/our-team.md'
-        label: 'Our Team'
-        name: 'ourTeam'
-        fields:
-          - {
-              label: Template,
-              name: template,
-              widget: hidden,
-              default: OurTeam,
-            }
-          - { label: Slug, name: slug, widget: hidden, default: 'our-team' }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: markdown }
-          - { label: Quote One, name: quote_one, widget: markdown, required: false }
-          - { label: Quote Two, name: quote_two, widget: markdown, required: false }
-          - label: 'Gallery'
-            name: 'gallery'
-            widget: 'list'
-            min: 2
-            fields:
-              - { name: image, label: Image, widget: image }
-              - { name: alt, label: Alt, widget: string }
-              - { name: title, label: Title, widget: string, required: false }
-          - label: 'Meta'
-            required: false
-            name: 'meta'
-            widget: 'object'
-            fields:
-              - { label: Title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
-              - {
-                  label: Canonical Link,
-                  name: canonicalLink,
-                  widget: string,
-                  required: false,
-                }
-              - {
-                  label: Noindex,
-                  name: noindex,
-                  widget: boolean,
-                  required: false,
-                }     
-      - file: 'content/pages/contact.md'
-        label: 'Contact Page'
-        name: 'contact-page'
-        fields:
-          - {
-              label: Template,
-              name: template,
-              widget: hidden,
-              default: ContactPage,
-            }
-          - { label: Slug, name: slug, widget: hidden, default: 'contact' }
-          - { label: Title, name: title, widget: string }
-          - { label: Description, name: description, widget: text }
-          - label: 'Offices'
-            name: 'offices'
-            widget: 'list'
-            fields:
-              - { name: image, label: Image, widget: image }
-              - { name: address, label: Address, widget: string }
-              - { name: contactNumber, label: Contact Number, widget: string }
-              - { name: city, label: City, widget: string }
-          - label: 'Meta'
-            required: false
-            name: 'meta'
-            widget: 'object'
-            fields:
-              - { label: Title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
-              - {
-                  label: Canonical Link,
-                  name: canonicalLink,
-                  widget: string,
-                  required: false,
-                }
-              - {
-                  label: Noindex,
-                  name: noindex,
-                  widget: boolean,
-                  required: false,
-                }
       - file: 'content/pages/services.md'
         label: 'Service Page'
         name: 'service-page'
@@ -227,9 +82,9 @@ collections: # A list of collections the CMS should be able to edit
                 name: image
                 widget: list
                 fields:
-                 - { name: image, label: Image, widget: image }
-                 - { name: alt, label: Alt, widget: string }
-                 - { name: title, label: Title, widget: string, required: false }
+                - { name: image, label: Image, widget: image }
+                - { name: alt, label: Alt, widget: string }
+                - { name: title, label: Title, widget: string, required: false }
           - label: 'Realtime Animation'
             name: 'realTimeAnimation'
             widget: 'object'
@@ -252,6 +107,81 @@ collections: # A list of collections the CMS should be able to edit
                 } 
           - { label: Contact Us, name: contactUsDescription, widget: text}
           - { label: Contact Us Image, name: contactUsImage, widget: image}                
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+      - file: 'content/pages/contact.md'
+        label: 'Contact Page'
+        name: 'contact-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: ContactPage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'contact' }
+          - { label: Title, name: title, widget: string }
+          - {
+              label: Featured Image,
+              name: featuredImage,
+              widget: image,
+              options:
+                { media_library: { config: { imageShrink: 2600x2600 } } },
+            }
+          - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Body, name: body, widget: markdown }
+          - { label: Address, name: address, widget: text }
+          - { label: Phone, name: phone, widget: string }
+          - { label: Email Address, name: email, widget: string }
+          - name: locations
+            label: locations
+            widget: list
+            fields:
+              - {
+                  name: mapLink,
+                  label: mapLink,
+                  widget: string,
+                  required: false,
+                  default: '',
+                }
+              - {
+                  name: lat,
+                  label: latitude,
+                  widget: string,
+                  required: false,
+                  delete: false,
+                  default: '',
+                }
+              - {
+                  name: lng,
+                  label: longitude,
+                  widget: string,
+                  required: false,
+                  delete: false,
+                  default: '',
+                }
           - label: 'Meta'
             required: false
             name: 'meta'

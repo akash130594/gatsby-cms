@@ -87,14 +87,6 @@ export const pageQuery = graphql`
         template
         subtitle
         featuredImage
-        address
-        phone
-        email
-        locations {
-          mapLink
-          lat
-          lng
-        }
       }
     }
   }
