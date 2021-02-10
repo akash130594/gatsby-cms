@@ -31,6 +31,54 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: true
     files:
+      - file: 'content/pages/our-team.md'
+        label: 'Our Team'
+        name: 'our-team'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: OurTeam,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'our-team' }
+          - { label: Title, name: title, widget: string }
+          - { label: Description, name: description, widget: markdown }
+          - { label: Quote One, name: quote_one, widget: markdown, required: false }
+          - { label: Quote Two, name: quote_two, widget: markdown, required: false }
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: 'list'
+            min: 2
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                } 
+
       - file: 'content/pages/services.md'
         label: 'Service Page'
         name: 'service-page'
@@ -558,6 +606,70 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
+  - name: positions
+    label: Positions
+    editor:
+      preview: true
+    folder: content/careers
+    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'  
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Post Date, name: date, widget: date, format: 'YYYY-MM-DD' }
+      - widget: relation
+        name: location
+        label: Location
+        required: true
+        collection: positionLocation
+        valueField: title
+        searchFields: ["title"]
+        displayFields: ["title"]
+      - label: 'Responsibilities'
+        name: 'responsiblities'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: responsiblity, label: Responsiblity, widget: string }
+
+      - label: 'Requirements'
+        name: 'requirements'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: requirement, label: Requirement, widget: string }    
+      - label: 'Desirables'
+        name: 'desirables'
+        widget: 'list'
+        min: 2
+        fields:
+          - { name: desirable, label: Desirable, widget: string }        
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }        
           
   - name: projects
     label: Projects
@@ -669,6 +781,17 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
+
+  - name: positionLocation
+    label: Position Location
+    editor:
+      preview: false
+    folder: content/positionLocations
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }        
   - name: projectCategories
     label: Project Categories
     editor:
