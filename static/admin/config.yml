@@ -5,15 +5,24 @@ backend:
 
 # display_url: https://gatsbro.netlify.com # This url will display in the top-right of the CMS
 media_library:
-  name: cloudinary
+  # name: cloudinary
+  # config:
+  #   cloud_name: dpm373rch
+  #   api_key: 616853212793338
+  #   default_transformations:
+  #     - - fetch_format: auto
+  #         width: auto
+  #         quality: auto
+  #         crop: scale
+  name: uploadcare
   config:
-    cloud_name: dpm373rch
-    api_key: 616853212793338
-    default_transformations:
-      - - fetch_format: auto
-          width: auto
-          quality: auto
-          crop: scale
+    publicKey: 339b152ea63d90c6721a
+    multiple: false
+    tabs: 'file camera url facebook gdrive'
+    effects: 'crop,rotate,enhance,grayscale'
+    imageShrink: '2000x2000'
+    previewStep: true
+    clearable: true
   # name: uploadcare
   # config:
   #   publicKey: a73a170cb5cdef662983
@@ -130,9 +139,9 @@ collections: # A list of collections the CMS should be able to edit
                 name: image
                 widget: list
                 fields:
-                - { name: image, label: Image, widget: image }
-                - { name: alt, label: Alt, widget: string }
-                - { name: title, label: Title, widget: string, required: false }
+                 - { name: image, label: Image, widget: image }
+                 - { name: alt, label: Alt, widget: string }
+                 - { name: title, label: Title, widget: string, required: false }
           - label: 'Realtime Animation'
             name: 'realTimeAnimation'
             widget: 'object'
@@ -155,30 +164,6 @@ collections: # A list of collections the CMS should be able to edit
                 } 
           - { label: Contact Us, name: contactUsDescription, widget: text}
           - { label: Contact Us Image, name: contactUsImage, widget: image}                
-          - label: 'Meta'
-            required: false
-            name: 'meta'
-            widget: 'object'
-            fields:
-              - { label: Title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
-              - {
-                  label: Canonical Link,
-                  name: canonicalLink,
-                  widget: string,
-                  required: false,
-                }
-              - {
-                  label: Noindex,
-                  name: noindex,
-                  widget: boolean,
-                  required: false,
-                }
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -191,45 +176,15 @@ collections: # A list of collections the CMS should be able to edit
             }
           - { label: Slug, name: slug, widget: hidden, default: 'contact' }
           - { label: Title, name: title, widget: string }
-          - {
-              label: Featured Image,
-              name: featuredImage,
-              widget: image,
-              options:
-                { media_library: { config: { imageShrink: 2600x2600 } } },
-            }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown }
-          - { label: Address, name: address, widget: text }
-          - { label: Phone, name: phone, widget: string }
-          - { label: Email Address, name: email, widget: string }
-          - name: locations
-            label: locations
-            widget: list
+          - { label: Description, name: description, widget: text }
+          - label: 'Offices'
+            name: 'offices'
+            widget: 'list'
             fields:
-              - {
-                  name: mapLink,
-                  label: mapLink,
-                  widget: string,
-                  required: false,
-                  default: '',
-                }
-              - {
-                  name: lat,
-                  label: latitude,
-                  widget: string,
-                  required: false,
-                  delete: false,
-                  default: '',
-                }
-              - {
-                  name: lng,
-                  label: longitude,
-                  widget: string,
-                  required: false,
-                  delete: false,
-                  default: '',
-                }
+              - { name: image, label: Image, widget: image }
+              - { name: address, label: Address, widget: string }
+              - { name: contactNumber, label: Contact Number, widget: string }
+              - { name: city, label: City, widget: string }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -253,8 +208,7 @@ collections: # A list of collections the CMS should be able to edit
                   name: noindex,
                   widget: boolean,
                   required: false,
-                }
-
+                }                
       - file: 'content/pages/blog.md'
         label: 'Blog Page'
         name: 'blog-page'
@@ -269,6 +223,7 @@ collections: # A list of collections the CMS should be able to edit
           - { label: Title, name: title, widget: string }
           - { label: Featured Image, name: featuredImage, widget: image }
           - { label: Subtitle, name: subtitle, widget: markdown }
+          - { label: Description, name: description, widget: text }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -293,7 +248,45 @@ collections: # A list of collections the CMS should be able to edit
                   widget: boolean,
                   required: false,
                 }
-
+      - file: 'content/pages/success.md'
+        label: 'Success Page'
+        name: 'success-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: SuccessPage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'success' }
+          - { label: Title, name: title, widget: string }
+          - { label: Featured Image, name: featuredImage, widget: image }
+          - { label: Heading, name: heading, widget: string }
+          - { label: Description, name: description, widget: string }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
       - file: 'content/pages/components.md'
         label: 'Components Page'
         name: 'components-page'
@@ -326,6 +319,83 @@ collections: # A list of collections the CMS should be able to edit
               - { name: image, label: Image, widget: image }
               - { name: alt, label: Alt, widget: string }
               - { name: title, label: Title, widget: string, required: false }
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+      - file: 'content/pages/about.md'
+        name: pages
+        label: about
+        fields: # The fields each document in this collection have
+          - { label: Slug, name: slug, widget: hidden, default: 'about' }
+          - { label: Template, name: template, widget: hidden, default: About }            
+          - { label: Title, name: title, widget: string }
+          - {
+            label: Featured Image,
+            name: featuredImage,
+            widget: image,
+            required: false,
+          }
+          - { label: Sub Title, name: subTitle, widget: string }
+          - { label: Description, name: description, widget: text }
+          - label: 'CEO Details'
+            name: 'ceo'
+            widget: 'list'
+            min: 1
+            max: 1
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }  
+          - { label: Our Story Description, name: our_story_description, widget: text }  
+          - label: 'Story'
+            name: 'story'
+            widget: 'list'
+            min: 2
+            fields:
+              - { name: year, label: Year, widget: date, format: 'YYYY', date_format: 'YYYY'}
+              - name: 'image' 
+                label: 'Image'
+                widget: 'list'
+                min: 2
+                fields:
+                  - { name: story_image, label: Image, widget: image }
+                  - { name: story_alt, label: Alt, widget: string }
+                  - { name: story_title, label: Title, widget: string, required: false }  
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }
+              - { name: header, label: Header, widget: string, required: false }
+              - { name: description, label: Description, widget: text, required: false }  
+          - { label: Our Team Description, name: our_team_description, widget: text }
+          - label: 'Our Team Gallery'
+            name: 'gallery'
+            widget: 'list'
+            min: 1
+            fields:
+              - { name: image, label: Image, widget: image }
+              - { name: alt, label: Alt, widget: string }
+              - { name: title, label: Title, widget: string, required: false }    
+          - { label: Join Us, name: join_us_description, widget: text } 
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -387,7 +457,7 @@ collections: # A list of collections the CMS should be able to edit
                   name: noindex,
                   widget: boolean,
                   required: false,
-                }
+                }         
       - file: 'content/pages/home.md'
         label: 'Home Page'
         name: 'home-page'
@@ -472,7 +542,54 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
-
+  - name: team
+    label: Team
+    editor:
+      preview: true
+    identifier_field: empId  
+    folder: content/team
+    slug: '{{title}}-{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: SingleTeam }
+      - { label: Employee Id, name: empId, widget: string }
+      - { label: Title, name: title, widget: string }
+      - { label: Position, name: position, widget: string }
+      - { label: Description, name: description, widget: markdown }
+      - { label: Role, name: role, widget: markdown }
+      - { label: Quote, name: quote, widget: markdown, required: false }
+      - { label: Employee Of The Month, name: empOfMonth, widget: boolean, default: false }
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      - {
+        label: Our Team Image,
+        name: ourTeamImage,
+        widget: image,
+        required: false,
+      }  
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Title, name: title, widget: string, required: false }
+          - {
+              label: Description,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - { label: Noindex, name: noindex, widget: boolean, required: false }
   - name: posts
     label: Post
     editor:
@@ -486,7 +603,7 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Header Description, name: headerDescription, widget: string }
       - { label: Description, name: description, widget: text }
       - { label: HashTags, name: hashtags, widget: string }
-
+      - { label: Is Top News, name: isTopNews, widget: boolean, default: false }
       - label: 'Sub Description One'
         required: false
         name: 'subDescriptionOne'
@@ -595,35 +712,23 @@ collections: # A list of collections the CMS should be able to edit
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }   
 
-  - name: team
-    label: Team
+  - name: postCategories
+    label: Post Category
     editor:
-      preview: true
-    folder: content/teams
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
-    identifier_field: empId  
+      preview: false
+    folder: content/postCategories
+    slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Template, name: template, widget: hidden, default: BlogIndex }
       - { label: Title, name: title, widget: string }
-      - { label: EmployeeId, name: empId, widget: string }
-      - { label: Position, name: position, widget: string }
-      - { label: Description, name: description, widget: markdown }
-      - { label: Role, name: role, widget: markdown }
-      - { label: Quote, name: quote, widget: markdown }
-      - { label: Employee Of The Month, name: empOfMonth, widget: boolean, default: false }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }
       - {
           label: Featured Image,
           name: featuredImage,
           widget: image,
           required: false,
         }
-      - {
-        label: Our Team Image,
-        name: ourImageImage,
-        widget: image,
-        required: false,
-      }  
       - label: 'Meta'
         required: false
         name: 'meta'
@@ -651,7 +756,7 @@ collections: # A list of collections the CMS should be able to edit
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'  
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Template, name: template, widget: hidden, default: SinglePosition }
       - { label: Title, name: title, widget: string }
       - { label: Description, name: description, widget: text }
       - { label: Post Date, name: date, widget: date, format: 'YYYY-MM-DD' }
@@ -706,8 +811,83 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }        
-          
+          - { label: Noindex, name: noindex, widget: boolean, required: false }   
+  - name: positionLocation
+    label: Position Location
+    editor:
+      preview: false
+    folder: content/positionLocations
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }          
+  - name: clients
+    label: Clients
+    editor:
+      preview: false
+    folder: content/clients
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields each document in this collection have
+      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Title, name: title, widget: string }
+      - { label: Order, name: order, widget: number, required: false }
+      - {
+          label: Featured Image,
+          name: featuredImage,
+          widget: image,
+          required: false,
+        }
+      # - label: 'Meta'
+      #   required: false
+      #   name: 'meta'
+      #   widget: 'object'
+      #   fields:
+      #     - { label: Title, name: title, widget: string, required: false }
+      #     - {
+      #         label: Description,
+      #         name: description,
+      #         widget: text,
+      #         required: false,
+      #       }
+      #     - {
+      #         label: Canonical Link,
+      #         name: canonicalLink,
+      #         widget: string,
+      #         required: false,
+      #       }
+      #     - { label: Noindex, name: noindex, widget: boolean, required: false }
+
+  - name: 'settings'
+    label: 'Settings'
+    delete: false # Prevent users from deleting documents in this collection
+    editor:
+      preview: false
+    files:
+      - file: 'content/settings/global.yml'
+        label: 'Global Settings'
+        name: 'global-settings'
+        fields:
+          - { label: Site Title, name: siteTitle, widget: string }
+          - { label: Site Url, name: siteUrl, widget: string, required: false }
+          - {
+              label: Site Description,
+              name: siteDescription,
+              widget: text,
+              required: false,
+            }
+          - label: Social Media Card
+            name: socialMediaCard
+            widget: object
+            fields:
+              - { label: Image, name: image, widget: image, required: false }
+          - {
+              label: Google Analytics Tracking Id,
+              name: googleTrackingId,
+              widget: string,
+              required: false,
+            }
   - name: projects
     label: Projects
     editor:
@@ -716,13 +896,14 @@ collections: # A list of collections the CMS should be able to edit
     slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: HomePage }
+      - { label: Template, name: template, widget: hidden, default: ProjectIndex }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - { label: Description, name: description, widget: text, required: false }
       - { label: Sub Description, name: subDescription, widget: text, required: false }
       - { label: Hash Tags, name: hashtags, widget: text, required: false }
       - { label: Trailer, name: trailer, widget: file, required: false }
+      - { label: Background Trailer, name: backgroundTrailer, widget: file, required: false }
       - { label: 'Year',
           name: 'year',
           widget: 'date',
@@ -749,7 +930,7 @@ collections: # A list of collections the CMS should be able to edit
         required: false,
       }
       - widget: relation
-        name: project-category
+        name: projectCategory
         label: Category
         required: true
         hint: >-
@@ -818,17 +999,6 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
           - { label: Noindex, name: noindex, widget: boolean, required: false }
-
-  - name: positionLocation
-    label: Position Location
-    editor:
-      preview: false
-    folder: content/positionLocations
-    slug: '{{slug}}'
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: HomePage }
-      - { label: Title, name: title, widget: string }        
   - name: projectCategories
     label: Project Categories
     editor:
@@ -839,70 +1009,4 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: HomePage }
       - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }     
-
-  - name: postCategories
-    label: Post Category
-    editor:
-      preview: false
-    folder: content/postCategories
-    slug: '{{slug}}'
-    create: true # Allow users to create new documents in this collection
-    fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: BlogIndex }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - {
-          label: Featured Image,
-          name: featuredImage,
-          widget: image,
-          required: false,
-        }
-      - label: 'Meta'
-        required: false
-        name: 'meta'
-        widget: 'object'
-        fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - {
-              label: Description,
-              name: description,
-              widget: text,
-              required: false,
-            }
-          - {
-              label: Canonical Link,
-              name: canonicalLink,
-              widget: string,
-              required: false,
-            }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }   
-  - name: 'settings'
-    label: 'Settings'
-    delete: false # Prevent users from deleting documents in this collection
-    editor:
-      preview: false
-    files:
-      - file: 'content/settings/global.yml'
-        label: 'Global Settings'
-        name: 'global-settings'
-        fields:
-          - { label: Site Title, name: siteTitle, widget: string }
-          - { label: Site Url, name: siteUrl, widget: string, required: false }
-          - {
-              label: Site Description,
-              name: siteDescription,
-              widget: text,
-              required: false,
-            }
-          - label: Social Media Card
-            name: socialMediaCard
-            widget: object
-            fields:
-              - { label: Image, name: image, widget: image, required: false }
-          - {
-              label: Google Analytics Tracking Id,
-              name: googleTrackingId,
-              widget: string,
-              required: false,
-            }
+      - { label: Subtitle, name: subtitle, widget: string, required: false }            

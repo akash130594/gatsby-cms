@@ -71,7 +71,7 @@ const ContactPage = ({ data: { page } }) => (
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
-    <ContactPageTemplate {...page.frontmatter} body={page.html} />
+    {/* <ContactPageTemplate className={`third-section-${index}`} {...page.frontmatter} body={page.html} /> */}
   </Layout>
 )
 
