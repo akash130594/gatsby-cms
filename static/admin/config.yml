@@ -559,7 +559,7 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Role, name: role, widget: markdown }
       - { label: Quote, name: quote, widget: markdown, required: false }
       - { label: Employee Of The Month, name: empOfMonth, widget: boolean, default: false }
-      - { label: Added Date and Time, name: addedDateTime, widget: datetime, date_format: "DD.MM.YYYY", time_format: "HH:mm:ss", picker_utc: false }
+      - { label: Added Date and Time, name: addedDateTime, widget: datetime, date_format: "DD.MM.YYYY", time_format: "HH:mm:ss", format: "DD MM YYYY hh:mm:ss" ,picker_utc: false }
       - {
           label: Featured Image,
           name: featuredImage,
