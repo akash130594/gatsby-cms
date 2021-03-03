@@ -548,7 +548,7 @@ collections: # A list of collections the CMS should be able to edit
       preview: true
     identifier_field: empId  
     folder: content/team
-    slug: '{{title}}-{{empId}}'
+    slug: '{{year}}-{{month}}-{{day}}_{{title}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: SingleTeam }
