@@ -41,7 +41,6 @@ exports.createPages = ({ actions, graphql }) => {
       )
       if (!pagesToCreate.length) return console.log(`Skipping ${contentType}`)
 
-      console.log(`Creating ${pagesToCreate.length} ${contentType}`)
 
       pagesToCreate.forEach((page, index) => {
         const id = page.node.id
@@ -73,7 +72,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const fileNode = getNode(node.parent)
     const parsedFilePath = path.parse(fileNode.relativePath)
-
+    
     if (_.get(node, 'frontmatter.slug')) {
       slug = `/${node.frontmatter.slug.toLowerCase()}/`
     } else if (
@@ -82,6 +81,11 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       parsedFilePath.dir === 'pages'
     ) {
       slug = `/`
+    }else if(parsedFilePath.dir === 'team'){
+      console.log("team")
+      slug = `/${_.kebabCase(parsedFilePath.dir)}/${_.kebabCase(
+        node.frontmatter.title
+      )}/${_.kebabCase(node.frontmatter.empId)}`
     } else if (_.get(node, 'frontmatter.title')) {
       slug = `/${_.kebabCase(parsedFilePath.dir)}/${_.kebabCase(
         node.frontmatter.title
